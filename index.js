@@ -64,7 +64,11 @@ const appMenu = () => {
                     else return true
                 }
             }
-        ])
+        ]).then(answers => {
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+            teamMembers.push(manager);
+            idList.push(answers.managerId);
+        })
 
     }
 }
