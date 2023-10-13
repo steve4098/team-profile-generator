@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "inquirer": "^9.2.11",
+    "inquirer": "^6.5.2",
     "jest": "^24.9.0"
   },
   "name": "team-profile-generator",
@@ -10,7 +10,6 @@
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
