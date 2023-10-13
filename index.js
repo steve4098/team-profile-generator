@@ -17,7 +17,56 @@ const teamMembers = []
 const idList = []
 
 const appMenu = () => {
+    function createManager() {
+        console.log("Create your team!");
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "managerName",
+                message: "Who is the team manager?",
+                validate: answer => {
+                    if (answer !== ""){
+                        return true
+                    }
+                    else return "Please enter the manager's name"
+                }
+            },
+            {
+                type: "input",
+                name: "managerId",
+                message: "What is the manager's ID?",
+                validate: answer => {
+                    if (answer !== ""){
+                        return true
+                    }
+                    else return "Please enter the manager's ID"
+                }
+            },
+            {
+                type: "input",
+                name: "managerEmail",
+                message: "What is the team manager's email address?",
+                validate: answer => {
+                    if (answer !== ""){
+                        return true
+                    }
+                    else return "Please enter the manager's email address"
+                }
+            },
+            {
+                type: "input",
+                name: "managerOfficeNumber",
+                message: "Which office does the manager work in?",
+                validate: answer => {
+                    if (answer === "" || answer === NaN){
+                        return "Please enter the manager's Office Number"
+                    }
+                    else return true
+                }
+            }
+        ])
 
+    }
 }
 
 appMenu();
