@@ -17,6 +17,32 @@ const teamMembers = []
 const idList = []
 
 const appMenu = () => {
+
+    function createTeam() {
+        inquirer.prompt([
+          {
+            type: "list",
+            name: "memberChoice",
+            message: "What team member role would you like to add?"
+            choices: [
+                "Engineer",
+                "Intern",
+                "No further team members"
+            ]
+          }  
+        ]).then(userChoice => {
+            if(userChoice.memberChoice === "Engineer") {
+                //Add Engineer
+            } else if (userChoice.memberChoice === "Intern" {
+                //Add Intern
+            }) else {
+                //buildTeam();
+            }
+        })
+    }
+
+
+
     function createManager() {
         console.log("Create your team!");
         inquirer.prompt([
@@ -68,7 +94,7 @@ const appMenu = () => {
             const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
             teamMembers.push(manager);
             idList.push(answers.managerId);
-            createReadStream();
+            createTeam();
         })
 
     }
