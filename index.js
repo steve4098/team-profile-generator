@@ -24,7 +24,58 @@ const appMenu = () => {
     }
     //function to add a new team member with class of Intern
     function addIntern() {
-
+        inquirer.prompt([
+            {
+              type: "input",
+              name: "internName",
+              message: "What is the intern's name?",
+              validate: answer => {
+                  if (answer !== ""){
+                      return true
+                  }
+                  else return "Please enter the intern's name"
+              }
+            },
+            {
+              type: "input",
+              name: "internId",
+              message: "What is the intern's ID?",
+              validate: answer => {
+                  if (answer !== ""){
+                      return true
+                  }
+                  else return "Please enter the intern's ID"
+              }
+            },
+            {
+              type: "input",
+              name: "internEmail",
+              message: "Please enter the intern's email address",
+              validate: answer => {
+                  if (answer !== ""){
+                      return true
+                  }
+                  else return "Please enter the intern's email address"
+              }
+            },
+            {
+              type: "input",
+              name: "internSchool",
+              message: "Please enter their school",
+              validate: answer => {
+                  if (answer !== ""){
+                      return true
+                  }
+                  else return "Please enter the intern's school"
+              }
+            }
+          ]).then(answers => {
+              const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+              teamMembers.push(intern);
+              idList.push(answers.internId);
+              console.log(intern);
+              createTeam();
+          })
     }
         //function to add a new team member with class of Engineer
     function addEngineer() {
