@@ -18,12 +18,69 @@ const idList = []
 
 const appMenu = () => {
 
+    function buildTeam () {
+
+    }
+
+    function addIntern() {
+
+    }
+
+    function addEngineer() {
+        inquirer.prompt([
+          {
+            type: "input",
+            name: "engineerName",
+            message: "What is the engineer's name?",
+            validate: answer => {
+                if (answer !== ""){
+                    return true
+                }
+                else return "Please enter the engineer's name"
+            }
+          },
+          {
+            type: "input",
+            name: "engineerId",
+            message: "What is the engineer's ID?",
+            validate: answer => {
+                if (answer !== ""){
+                    return true
+                }
+                else return "Please enter the engineer's ID"
+            }
+          },
+          {
+            type: "input",
+            name: "engineerEmail",
+            message: "Please enter the engineer's email address",
+            validate: answer => {
+                if (answer !== ""){
+                    return true
+                }
+                else return "Please enter the engineer's email address"
+            }
+          },
+          {
+            type: "input",
+            name: "engineerGithub",
+            message: "Please enter their GitHub username",
+            validate: answer => {
+                if (answer !== ""){
+                    return true
+                }
+                else return "Please enter the engineer's GitHub username"
+            }
+          }
+        ])
+    }
+
     function createTeam() {
         inquirer.prompt([
           {
             type: "list",
             name: "memberChoice",
-            message: "What team member role would you like to add?"
+            message: "What team member role would you like to add?",
             choices: [
                 "Engineer",
                 "Intern",
