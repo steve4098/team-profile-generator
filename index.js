@@ -90,10 +90,15 @@ const appMenu = () => {
         ]).then(userChoice => {
             if(userChoice.memberChoice === "Engineer") {
                 //Add Engineer
+                addEngineer();
+
             } else if (userChoice.memberChoice === "Intern" {
                 //Add Intern
+                addIntern();
+
             }) else {
                 //buildTeam();
+                buildTeam();
             }
         })
     }
