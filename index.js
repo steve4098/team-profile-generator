@@ -16,16 +16,17 @@ const render = require("./src/page-template.js");
 const teamMembers = []
 const idList = []
 
+//variable to build team structure
 const appMenu = () => {
-
+    //builds team when all members are added
     function buildTeam () {
 
     }
-
+    //function to add a new team member with class of Intern
     function addIntern() {
 
     }
-
+        //function to add a new team member with class of Engineer
     function addEngineer() {
         inquirer.prompt([
           {
@@ -72,9 +73,16 @@ const appMenu = () => {
                 else return "Please enter the engineer's GitHub username"
             }
           }
-        ])
+        ]).then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            teamMembers.push(engineer);
+            idList.push(answers.engineerId);
+            console.log(engineer);
+            createTeam();
+        })
     }
 
+    //sends prompt to create a new team member or declare team finished
     function createTeam() {
         inquirer.prompt([
           {
@@ -92,11 +100,11 @@ const appMenu = () => {
                 //Add Engineer
                 addEngineer();
 
-            } else if (userChoice.memberChoice === "Intern" {
+            } else if (userChoice.memberChoice === "Intern") {
                 //Add Intern
                 addIntern();
 
-            }) else {
+            } else {
                 //buildTeam();
                 buildTeam();
             }
@@ -104,7 +112,7 @@ const appMenu = () => {
     }
 
 
-
+    //function to add a new team manager
     function createManager() {
         console.log("Create your team!");
         inquirer.prompt([
@@ -156,6 +164,7 @@ const appMenu = () => {
             const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
             teamMembers.push(manager);
             idList.push(answers.managerId);
+            console.log(manager);
             createTeam();
         })
 
